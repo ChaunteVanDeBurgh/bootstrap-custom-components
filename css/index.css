@@ -1,0 +1,26 @@
+#main {
+	margin-left: 1rem;
+}
+
+.btn-purple {
+	color: #fff;
+	background-color: #803BDB;
+	border-color: #822FBA;
+}
+
+.btn-purple:hover,
+.btn-purple:focus,
+.btn-purple.active {
+	color: #ffffff;
+	background-color: #6B39AD;
+	border-color: #822FBA;
+}
+
+.btn-purple:active {
+	background-color: pink;
+	color: black;
+}
+
+.row {
+	margin-top: 2rem;
+}
