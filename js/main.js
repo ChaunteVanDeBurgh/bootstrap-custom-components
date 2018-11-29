@@ -9,14 +9,24 @@ $(document).ready(function() {
 					'<p class="col-sm-9" id="bio">{bio}</p>' +
 					'</div>',
 			bio = '' + 
-				'At the moment I have {publicRepo} public repos' +
-				'and {folowers} followers. /n' +
+				'At the moment I have {publicRepo} public reposs' +
+				'and {followers} followers.\n' +
 				'I joined Github on {dateJoin}';
 
 		url = url.replace(/{username}/, $('#github-username').val());
 
 		$.get(url, function(data) {
-			console.log(data)
+			title = title.replace(/{name}/, data.name);
+
+			bio = bio.replace(/{publicRepo}/, data.public_repos)
+							 .replace(/{followers}/, data.followers)
+							 .replace(/{dateJoin}/, data.created_at.split('T')[0]);
+			
+			content = content.replace(/{img}/, data.avatar_url)
+											 .replace(/{bio}/, bio);
+
+			$element.find('.modal-title').text(title);
+			$element.find('.modal-body').html(content);
 		});
 	});
 });
